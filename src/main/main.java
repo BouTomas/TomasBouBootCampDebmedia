@@ -21,12 +21,12 @@ public class main {
 
         cargarEjercito();
         cargarArmeria();
-             // cargarArma(magos.get(0), arcos.get(0));
+
 
                mostrarEjercito();
                mostrarArmas();
                equiparEjercito(guerreros,armas);
-              System.out.print("Listo");
+              System.out.print("Terminado en rama TomasBou");
 
 
 
@@ -37,6 +37,7 @@ public class main {
         int cero=0;
         if(e.getVida()-g.ataqueBasico()<=cero){
             loMata=true;
+            System.out.print("Te mate");
         }
         return loMata;
     }
