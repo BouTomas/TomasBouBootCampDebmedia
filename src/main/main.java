@@ -26,10 +26,39 @@ public class main {
                mostrarEjercito();
                mostrarArmas();
                equiparEjercito(guerreros,armas);
-              System.out.print("Listo");
+               resultadoDeArmeria();
+              System.out.println("Listo");
 
 
 
+    }
+
+    private static void resultadoDeArmeria(){
+        int i=0;
+        int armasNoAsignadas=0;
+        int guerrerosNoAsignados=0;
+        while(i<guerreros.size() && i<armas.size()){
+            for (int j = 0; j < guerreros.size(); j++) {
+                Class g1=guerreros.get(j).getClass();
+                if ("Berzerker".equals(g1)) {
+                    if (!armas.get(j).equals("Espada")) {
+                        armasNoAsignadas++;
+                        System.out.println(g1 + " no se le asigno arma");
+                    }
+                } else if ("Arquero".equals(g1)) {
+                    if (!armas.get(j).equals("Arco")) {
+                        armasNoAsignadas++;
+                        System.out.println(g1 + " no se le asigno arma");
+                    }
+                } else if ("Mago".equals(g1)) {
+                    if (!armas.get(j).equals("Vaculo")) {
+                        armasNoAsignadas++;
+                        System.out.println(g1 + " no se le asigno arma");
+                    }
+                }
+            }
+            i++;
+        }
     }
 
     private boolean matarEnemigo(Guerrero g, Enemigo e){
@@ -42,15 +71,17 @@ public class main {
     }
 
 
-    //CONSULTAR
+
 
     private static  void equiparEjercito(ArrayList<Guerrero>guerreros,ArrayList<Arma>armas) {
-        int i=0;
-        while(i<guerreros.size() && i<armas.size()){
-            for (int j = 0; j < guerreros.size(); j++) {
-                guerreros.get(j).setArma(armas.get(j));
+
+        if(guerreros.size() == armas.size()){
+            for (int i = 0; i < guerreros.size(); i++) {
+                guerreros.get(i).setArma(armas.get(i));
             }
-            i++;
+
+        }else {
+            System.out.println("No hay la misma cantidad de armas y guerreros");
         }
 
     }
