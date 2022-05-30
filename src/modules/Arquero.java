@@ -10,13 +10,13 @@ public class Arquero extends Guerrero{
 
     @Override
     public void setArma(Arma arma) {
-        if (arma.getClass().equals("Arco")){
+        if (arma.getClass().equals(Arco.class)){
             Arco a=(Arco)arma;
-            System.out.print("Equipado!");
+            System.out.println("Equipado!");
 
         }
         else {
-            System.out.println("Soy un "+this.getClass()+" y solo uso un Arco");
+            System.out.println("Soy un arquero y solo uso un Arco");
         }
 
     }

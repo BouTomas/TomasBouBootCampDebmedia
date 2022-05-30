@@ -12,13 +12,13 @@ public class Berzerker extends Guerrero{
     @Override
     public void setArma(Arma arma) {
 
-        if (arma.getClass().equals("Espada")){
+        if (arma.getClass().equals(Espada.class)){
             Espada e=(Espada)arma;
-            System.out.print("Equipado!");
+            System.out.println("Equipado!");
 
             }
         else {
-            System.out.println("Soy un "+this.getClass()+" y solo uso una Espada");
+            System.out.println("Soy un berzerker y solo uso una Espada");
         }
     }
 

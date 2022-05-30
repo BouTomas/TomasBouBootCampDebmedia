@@ -10,9 +10,9 @@ public class Mago extends Guerrero{
     @Override
     public void setArma(Arma arma) {
 
-        if (arma.getClass().equals("Vaculo")){
+        if (arma.getClass().equals(Vaculo.class)){
             Vaculo v=(Vaculo) arma;
-            System.out.print("Equipado!");
+            System.out.println("Equipado!");
 
         }
         else {
