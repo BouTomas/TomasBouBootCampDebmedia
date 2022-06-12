@@ -1,9 +1,7 @@
 package main;
 
-import javafx.scene.chart.ScatterChart;
 import modules.*;
 
-import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,6 +31,10 @@ public class main {
     }
 
     private static void resultadoDeArmeria() {
+        // Este metodo se simplificaria mucho con lo comentado en cargar armas.
+        // Por que las armas sin cargar la sacas facilmente con un armas.size()
+        // Y despues solo loopearias sobre el array guerreros y contas los que en el
+        // guerrero.getArma() te devuelve un null.
         int i = 0;
         int armasNoAsignadas = 0;
         int guerrerosNoAsignados = 0;
@@ -60,6 +62,8 @@ public class main {
         }
     }
 
+    // ESte metodo nunca lo usaste. Poner un ejemplo del mismo sobre el main.
+    // Create un objeto a mano con los constructores que definiste y asi lo ejecutas.
     private boolean matarEnemigo(Guerrero g, Enemigo e) {
         boolean loMata = false;
         int cero = 0;
@@ -72,6 +76,21 @@ public class main {
 
     private static void equiparEjercito(ArrayList<Guerrero> guerreros, ArrayList<Arma> armas) {
 
+        // Este metodo va a rehacerse.
+        // El punto de éste metodo es el hecho de que aprendas a manejar 2 litas en paralelo donde los indices de cada una puede ser variable
+        // los objetos que hay dentro de ella pueden ser variables tambien.
+        // Con el metodo definido por vos, tiene que existir la misma cantidad de guerreros, armas y estar ordenados.
+
+        /*
+        * Te dejo un lineamiento y una ayuda para éste ejercicio:
+        * Podes usar 2 fors, donde en el primero loopees guerreros y en el segundo las armas.
+        * for(Guerrero guerrero : guerreros){
+        *   for(Arma arma : armas){
+        *       Aca metes la logica de preguntar si el guerrero es X clase y el Arma es Y Clase.
+        *       Si matchean usas el set, removes el objeto del array y rompes el loopeo de armas.
+        *   }
+        * }
+        * */
         if (guerreros.size() == armas.size()) {
             for (int i = 0; i < guerreros.size(); i++) {
                 guerreros.get(i).setArma(armas.get(i));
@@ -95,6 +114,7 @@ public class main {
         try {
             while (continuaIngreso) {
 
+                // Mismo comentario que en Cargar Ejercito.
                 System.out.print("Que Arma desea ingresar? Espada, Arco o Vaculo :");
                 String respuesta = teclado.next();
                 if (!respuesta.equalsIgnoreCase("Espada") && !respuesta.equalsIgnoreCase("Arco") && !respuesta.equalsIgnoreCase("Vaculo")) {
@@ -103,6 +123,7 @@ public class main {
                 }
 
                 System.out.print("Id  :");
+                // Acá a lo sumo, podrias haber hecho que el id se genere aleatoriamente. No pasaba nada.
                 int idArma = teclado.nextInt();
                 System.out.print("Nombre :");
                 String nombreArma = teclado.next();
@@ -153,6 +174,8 @@ public class main {
 
 
                 String respuesta;
+                // Acá como algo mas sencillo, pudieras haber usado numeros en vez de escribir el texto completo
+                // EJ: 1 - Berserker \n 2 \n - Arquero 3 - Mago (El \n en un string es un salto de linea)
                 System.out.println("Que Guerrero desea ingresar? Berzerker, Arquero o Mago :");
 
                 respuesta = teclado.next();
@@ -198,7 +221,11 @@ public class main {
 
         boolean sigue = true;
         System.out.print("Desea seguir ingresando? si/no :");
+        // Para evitarte cualquier tema de mayusculas y minusculas podias hacer un:
+        // teclado.next().toLowerCas().
         String respuesta = teclado.next();
+        // Con lo dicho arriba acá directamente hacias un respuesta.equals("si")
+        // sigue = true; y list.
         if (!respuesta.equalsIgnoreCase("si") && !respuesta.equalsIgnoreCase("no")) {
             System.out.print("Ingrese opcion correcta si o no :");
             respuesta = teclado.next();
