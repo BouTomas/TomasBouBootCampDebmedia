@@ -24,7 +24,8 @@ public class main {
             mostrarArmas();
             equiparEjercito(guerreros, armas);
             resultadoDeArmeria();
-            System.out.println("Listo");
+
+
         } catch (RuntimeException r) {
             System.out.println("Hubo un error en el sistema");
         }
@@ -32,32 +33,23 @@ public class main {
 
     }
 
+
+
     private static void resultadoDeArmeria() {
-        int i = 0;
-        int armasNoAsignadas = 0;
-        int guerrerosNoAsignados = 0;
-        while (i < guerreros.size() && i < armas.size()) {
-            for (int j = 0; j < guerreros.size(); j++) {
-                Class g1 = guerreros.get(j).getClass();
-                if ("Berzerker".equals(g1)) {
-                    if (!armas.get(j).equals("Espada")) {
-                        armasNoAsignadas++;
-                        System.out.println(g1 + " no se le asigno arma");
-                    }
-                } else if ("Arquero".equals(g1)) {
-                    if (!armas.get(j).equals("Arco")) {
-                        armasNoAsignadas++;
-                        System.out.println(g1 + " no se le asigno arma");
-                    }
-                } else if ("Mago".equals(g1)) {
-                    if (!armas.get(j).equals("Vaculo")) {
-                        armasNoAsignadas++;
-                        System.out.println(g1 + " no se le asigno arma");
-                    }
-                }
-            }
-            i++;
+        System.out.println("Armas no asignadas");
+        for (Arma a:armas) {
+            System.out.println(a);
+
         }
+        System.out.println("Guerreros desarmados");
+        for (Guerrero g:guerreros) {
+            if(g.getArma()==null){
+                System.out.println(g);
+            }
+
+
+        }
+
     }
 
     private boolean matarEnemigo(Guerrero g, Enemigo e) {
@@ -72,16 +64,32 @@ public class main {
 
     private static void equiparEjercito(ArrayList<Guerrero> guerreros, ArrayList<Arma> armas) {
 
-        if (guerreros.size() == armas.size()) {
-            for (int i = 0; i < guerreros.size(); i++) {
-                guerreros.get(i).setArma(armas.get(i));
+
+        for(Guerrero guerrero:guerreros) {
+            for(Arma arma:armas){
+                if(guerrero.getClass()==Berzerker.class && guerrero.getArma()==null && arma.getClass()==Espada.class){
+                    guerrero.setArma(arma);
+                    armas.remove(arma);
+                    break;
+                }
+                else if(guerrero.getClass()==Mago.class && guerrero.getArma()==null && arma.getClass()==Vaculo.class){
+                    guerrero.setArma(arma);
+                    armas.remove(arma);
+                    break;
+                }
+                else if(guerrero.getClass()==Arquero.class && guerrero.getArma()==null && arma.getClass()==Arco.class){
+                    guerrero.setArma(arma);
+                    armas.remove(arma);
+                    break;
+                }
             }
 
-        } else {
-            System.out.println("No hay la misma cantidad de armas y guerreros");
+
+
         }
 
     }
+
 
     public static void cargarArma(Guerrero g, Arma a) {
         g.setArma(a);
@@ -137,7 +145,7 @@ public class main {
     public static void mostrarArmas() {
         System.out.println("Armas :");
         for (int i = 0; i < armas.size(); i++) {
-            System.out.println(armas.get(i).getNombre());
+            System.out.println(armas.get(i).getClass() +""+ armas.get(i).getNombre());
 
         }
     }
@@ -217,7 +225,7 @@ public class main {
         public static void mostrarEjercito() {
             System.out.println("Ejercito : ");
             for (int i = 0; i < guerreros.size(); i++) {
-                System.out.println(guerreros.get(i).getNombre());
+                System.out.println(guerreros.get(i).getClass()+" "+guerreros.get(i).getNombre());
 
             }
         }

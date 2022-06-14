@@ -35,4 +35,13 @@ public abstract class Arma {
     public void setPoderAtaque(double poderAtaque) {
         this.poderAtaque = poderAtaque;
     }
+
+    @Override
+    public String toString() {
+        return "Arma{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", poderAtaque=" + poderAtaque +
+                '}';
+    }
 }

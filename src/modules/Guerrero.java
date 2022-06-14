@@ -46,4 +46,14 @@ public abstract class Guerrero {
     public double ataqueBasico(){
         return this.fuerza*arma.poderAtaque;
     }
+
+    @Override
+    public String toString() {
+        return "Guerrero{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", fuerza=" + fuerza +
+                ", arma=" + arma +
+                '}';
+    }
 }
