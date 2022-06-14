@@ -43,6 +43,7 @@ public abstract class Guerrero {
         this.fuerza = fuerza;
     }
 
+    // Hacer metodo abstracto si lo resolvian con clase abstracta.
     public double ataqueBasico(){
         return this.fuerza*arma.poderAtaque;
     }

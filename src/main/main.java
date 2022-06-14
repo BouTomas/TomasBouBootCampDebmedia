@@ -24,8 +24,7 @@ public class main {
             mostrarArmas();
             equiparEjercito(guerreros, armas);
             resultadoDeArmeria();
-
-
+            System.out.println("Listo");
         } catch (RuntimeException r) {
             System.out.println("Hubo un error en el sistema");
         }
@@ -33,9 +32,11 @@ public class main {
 
     }
 
-
-
     private static void resultadoDeArmeria() {
+        // Este metodo se simplificaria mucho con lo comentado en cargar armas.
+        // Por que las armas sin cargar la sacas facilmente con un armas.size()
+        // Y despues solo loopearias sobre el array guerreros y contas los que en el
+        // guerrero.getArma() te devuelve un null.
         System.out.println("Armas no asignadas");
         for (Arma a:armas) {
             System.out.println(a);
@@ -47,9 +48,7 @@ public class main {
                 System.out.println(g);
             }
 
-
         }
-
     }
 
     private boolean matarEnemigo(Guerrero g, Enemigo e) {
@@ -84,12 +83,9 @@ public class main {
                 }
             }
 
-
-
         }
 
     }
-
 
     public static void cargarArma(Guerrero g, Arma a) {
         g.setArma(a);
@@ -145,7 +141,7 @@ public class main {
     public static void mostrarArmas() {
         System.out.println("Armas :");
         for (int i = 0; i < armas.size(); i++) {
-            System.out.println(armas.get(i).getClass() +""+ armas.get(i).getNombre());
+            System.out.println(armas.get(i).getNombre());
 
         }
     }
@@ -225,7 +221,7 @@ public class main {
         public static void mostrarEjercito() {
             System.out.println("Ejercito : ");
             for (int i = 0; i < guerreros.size(); i++) {
-                System.out.println(guerreros.get(i).getClass()+" "+guerreros.get(i).getNombre());
+                System.out.println(guerreros.get(i).getNombre());
 
             }
         }
