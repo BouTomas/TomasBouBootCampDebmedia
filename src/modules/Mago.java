@@ -12,17 +12,25 @@ public class Mago extends Guerrero{
 
         if (arma.getClass().equals(Vaculo.class)){
             Vaculo v=(Vaculo) arma;
-            System.out.println("Equipado!");
+
+
+
+
+            System.out.print("Ya tengo mi arma!");
+
+
 
         }
         else {
-            System.out.println("Soy un mago y solo uso un Vaculo");
+            System.out.println("Soy un mago y solo uso un Vaculo ");
+
 
         }
     }
 
 
     public double ataqueMagico(){
+        System.out.println("Tiro ataque magico");
         return 0;
     }
 

@@ -2,6 +2,7 @@ package modules;
 
 public class Enemigo {
     int vida;
+    int edad;
 
     public Enemigo(int vida) {
         this.vida = vida;

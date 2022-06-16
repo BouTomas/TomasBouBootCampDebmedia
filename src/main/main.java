@@ -13,7 +13,11 @@ public class main {
     static ArrayList<Guerrero> guerreros = new ArrayList<>();
     static ArrayList<Arma> armas = new ArrayList<>();
 
+
     public static void main(String[] args) {
+
+        //JDK 1.8
+
 
         try {
             cargarEjercito();
@@ -28,6 +32,7 @@ public class main {
         } catch (RuntimeException r) {
             System.out.println("Hubo un error en el sistema");
         }
+
 
 
     }

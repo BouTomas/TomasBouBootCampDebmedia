@@ -3,6 +3,8 @@ package modules;
 public class Berzerker extends Guerrero{
 
 
+    String apellido;
+
     public Berzerker(int id, String nombre, double fuerza) {
         super(id, nombre, fuerza);
 
@@ -14,7 +16,9 @@ public class Berzerker extends Guerrero{
 
         if (arma.getClass().equals(Espada.class)){
             Espada e=(Espada)arma;
-            System.out.println("Equipado!");
+
+            System.out.print("Ya tengo mi arma!");
+
 
             }
         else {

@@ -5,6 +5,7 @@ public abstract class Arma {
     int id;
     String nombre;
     double poderAtaque;
+    String color;
 
     public Arma(int id, String nombre, double poderAtaque) {
         this.id = id;
