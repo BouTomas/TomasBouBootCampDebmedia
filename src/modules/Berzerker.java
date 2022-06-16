@@ -3,6 +3,8 @@ package modules;
 public class Berzerker extends Guerrero{
 
 
+    String apellido;
+
     public Berzerker(int id, String nombre, double fuerza) {
         super(id, nombre, fuerza);
 
