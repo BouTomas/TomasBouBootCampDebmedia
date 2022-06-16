@@ -3,6 +3,8 @@ package modules;
 public class Arquero extends Guerrero{
 
 
+    int edad;
+
 
     public Arquero(int id, String nombre, double fuerza) {
         super(id, nombre, fuerza);
