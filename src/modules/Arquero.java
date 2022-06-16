@@ -14,7 +14,7 @@ public class Arquero extends Guerrero{
     public void setArma(Arma arma) {
         if (arma.getClass().equals("Arco")){
             Arco a=(Arco)arma;
-            System.out.print("Equipado!");
+            System.out.print("Ya tengo mi arma!");
 
         }
         else {

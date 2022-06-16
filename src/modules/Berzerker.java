@@ -14,7 +14,7 @@ public class Berzerker extends Guerrero{
 
         if (arma.getClass().equals("Espada")){
             Espada e=(Espada)arma;
-            System.out.print("Equipado!");
+            System.out.print("Ya tengo mi arma!");
 
             }
         else {
